@@ -1,0 +1,20 @@
+*,*:before,*:after{
+          box-sizing: border-box;
+}
+
+html{
+-webkit-text-size-adjust:100%;
+}
+
+body{
+          font-family: 'Noto Sans JP', sans-serif;
+          font-weight: 400; 
+          
+}
+
+.button{
+  border:2px solid black;
+}
+.time{
+  margin-bottom: 30px;
+}
