@@ -17,15 +17,12 @@ function updateTime() {
  const tenStr = ten.toString();
  const hundredStr = hundred.toString();
  
- /*global $*/
- $(document).ready(function(){
- $('time').html('${msStr}:${sStr}:${tenStr}:${hundredStr}') ;
- });
+ timeElement.innerHTML='${msStr}:${sStr}:${tenStr}:${hundredStr}' ;
  
 }
  
 start.addEventListener('click',function (e) {
- if (IntervalId !== null) {return};
+ if (IntervalId !== null) {return;}
  let pre = new Date(); 
  IntervalId=setInterval(function () {
   const now = new Date();
