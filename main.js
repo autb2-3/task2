@@ -8,16 +8,16 @@ let IntervalId =null;
 
 function updateTime() {
  const ms = Math.floor(elapsed % 100);
- const s = Math.floor(elapsed % 1000);
- const ten = Math.floor(elapsed % 10000);
- const hundred = Math.floor(elapsed % 100000);
+ const s = Math.floor(elapsed % 10000 / 1000);
+ const ten = Math.floor(elapsed % 100000 /10000);
+ const hundred = Math.floor(elapsed % 1000000 /100000);
  // body...
  const msStr = ms.toString();
  const sStr = s.toString();
  const tenStr = ten.toString();
  const hundredStr = hundred.toString();
- 
- timeElement.innerHTML='${msStr}:${sStr}:${tenStr}:${hundredStr}' ;
+  
+ timeElement.innerHTML=`${hundredStr}:${tenStr}:${sStr}:${msStr}`;
  
 }
  
@@ -26,7 +26,7 @@ start.addEventListener('click',function (e) {
  let pre = new Date(); 
  IntervalId=setInterval(function () {
   const now = new Date();
-  elapsed += pre - now;
+  elapsed += now - pre;
   pre = now;
   updateTime();
   
@@ -34,8 +34,8 @@ start.addEventListener('click',function (e) {
 });
 
 stop.addEventListener('click',function() {
-  clearInterval('IntervalId');
-  IntervalId=null;
+  clearInterval(IntervalId);
+  IntervalId= null;
 }) ;
  
 reset.addEventListener('click',function () {
